@@ -29,9 +29,15 @@ Anything. The HotBot I run in production at the moment does:
 
 ## How does it work?
 
-Hotbot is made of 3 primary components, a config file, Modules and Commands.
+Hotbot is made of 3 primary components, a config file, Modules and Commands that interact with each other in various ways.
 
-## Configuration and minimal app 
+###Installation
+
+  - Latest release:
+
+        $ npm install hotbot
+
+### Configuration and minimal app 
 
 The mimimal configuration (/config/config.json) is as follows :
 ```javascript
