@@ -66,8 +66,8 @@ For example, your Github module needs to add a route to your Express server modu
 
 ### Modules Documentation and examples
 
-Examples : Getting Started with Modules
-API Doc : Module API
+- [Getting Started with Modules](https://github.com/xShirase/hotbot/blob/master/docs/GettingStarted.md)
+- [Module API](https://github.com/xShirase/hotbot/blob/master/docs/Modules.md)
 
 ## Commands
 Commands are what you type into the Slack app, and how the bot reacts to it. Commands take priority over regular messages.
@@ -78,18 +78,17 @@ To add a new command, create a new folder in the commands directory (configurabl
 
 ### Commands documentation and examples :
 
-Examples : Getting Started with Commands
-See : Command API 
-
-## Where is the documentation ?
+- [Getting Started with Commands](https://github.com/xShirase/hotbot/blob/master/docs/GettingStarted.md)
+- [Command API](https://github.com/xShirase/hotbot/blob/master/docs/Commands.md) 
 
 ## Enough said, take my money!!
 Well, thank you, kind stranger!
 
 ##To-Do List
-- Enable optional restricting of commands to DM
-- yeoman generator for project skeleton
-- more error handling
+- [ ] Enable optional restricting of commands to DM
+- [ ] argument validation based on options
+- [ ] Yeoman generator for project skeleton
+- [ ] more error handling
 
 ## Changelog
 
