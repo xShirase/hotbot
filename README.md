@@ -12,9 +12,9 @@
     * basic Example
     * building on the previous example
 * [Commands](https://github.com/xShirase/hotbot/blob/master/README.md#commands)
-    * []()
-    * []()
-    * []()
+    * [API doc](https://github.com/xShirase/hotbot#commands-documentation-)
+    * [1st example : fw, make the bot talk!](https://github.com/xShirase/hotbot#command-fw-make-the-bot-talk)
+    * [2nd example : Rock, Paper, Scissors!](https://github.com/xShirase/hotbot#command-rps-rockpaperscissors-challenge)
 * [To-Do List](https://github.com/xShirase/hotbot/blob/master/README.md#to-do-list)
 * [Donate](https://github.com/xShirase/hotbot/blob/master/README.md#enough-said-take-my-money)
 * [Contribute](https://github.com/xShirase/hotbot/blob/master/README.md#can-i-contribute)
