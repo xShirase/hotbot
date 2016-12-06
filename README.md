@@ -4,7 +4,9 @@
 * [Who is it for?](https://github.com/xShirase/hotbot/blob/master/README.md#who-is-it-for)
 * [What can it do?](https://github.com/xShirase/hotbot/blob/master/README.md#what-can-it-do)
 * [How does it work?](https://github.com/xShirase/hotbot/blob/master/README.md#how-does-it-work)
-* [Configuration and minimal app](https://github.com/xShirase/hotbot/blob/master/README.md#configuration-and-minimal-app)
+    * [Installation](https://github.com/xShirase/hotbot/blob/master/README.md#installation)
+    * [Folder structure](https://github.com/xShirase/hotbot/blob/master/README.md#folder-structure)
+    * [Configuration and minimal app](https://github.com/xShirase/hotbot/blob/master/README.md#configuration-and-minimal-app)
 * [Modules](https://github.com/xShirase/hotbot/blob/master/README.md#modules)
     * [Doc and examples](https://github.com/xShirase/hotbot/blob/master/README.md#modules-documentation-and-examples)
 * [Commands](https://github.com/xShirase/hotbot/blob/master/README.md#commands)
@@ -31,11 +33,29 @@ Anything. The HotBot I run in production at the moment does:
 
 Hotbot is made of 3 primary components, a config file, Modules and Commands that interact with each other in various ways.
 
-###Installation
+### Installation
 
   - Latest release:
 
         $ npm install hotbot
+
+### Folder structure
+A basic HotBot project is structured as follows 
+```
+   |--app.js
+   |--config
+   |  |--config.js
+   |--modules
+   |   |--myModule
+   |   |  |--index.js
+   |   |--myOtherModule
+   |      |--index.js   
+   |--commands
+      |--myCommand
+      |  |--index.js
+      |--myOtherCommand
+         |--index.js
+```
 
 ### Configuration and minimal app 
 
