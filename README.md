@@ -262,7 +262,7 @@ class Git extends Module {
 module.exports = Git;
 ```
 The result, on a random commit :
-![resultexample2](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![resultexample2](https://github.com/xShirase/hotbot/raw/master/docs/MyScreenshot.png "git webhook to Slack")
 
 
 
