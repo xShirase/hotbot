@@ -9,8 +9,8 @@
     * [Configuration and minimal app](https://github.com/xShirase/hotbot/blob/master/README.md#configuration-and-minimal-app)
 * [Modules](https://github.com/xShirase/hotbot/blob/master/README.md#modules)
     * Documentation 
-    * basic Example
-    * building on the previous example
+    * Getting Started, adding a web Server
+    * Building on the previous example
 * [Commands](https://github.com/xShirase/hotbot/blob/master/README.md#commands)
     * [API doc](https://github.com/xShirase/hotbot#commands-documentation-)
     * [1st example : fw, make the bot talk!](https://github.com/xShirase/hotbot#command-fw-make-the-bot-talk)
@@ -107,10 +107,164 @@ Modules live in a directory that you can specify, and will be auto-loaded/init o
 They can also pass messages to each other, and to the Slack Bot (which is also a Module), and request components from each other.
 For example, your Github module needs to add a route to your Express server module at runtime? Not a problem! 
 
-### Modules Documentation and examples
+### Modules Documentation
 
-- [Getting Started with Modules](https://github.com/xShirase/hotbot/blob/master/docs/GettingStarted.md)
 - [Module API](https://github.com/xShirase/hotbot/blob/master/docs/Modules.md)
+
+### Getting started, adding a basic web server
+
+- **Folder Structure**
+```
+   |--app.js
+   |--config
+   |  |--config.js
+   |--commands
+   |--modules
+      |--web
+         |--index.js
+```
+- **Module configuration**
+To enable our module, we need to add it to the modules part of our config file. We'll also make its port configurable, because why not.
+
+```javascript
+const config = {
+	modulesPath: path.resolve(__dirname, '../modules'),
+	modules: [
+		{
+			name: 'web',
+			priority: 1,
+			port: 1987
+		}
+	],
+	slack: {
+		name: 'slack',
+		connection: {
+			token: 'xoxb-tokentokentoken',
+			autoReconnect: true,
+			autoMark: true
+		},
+		commandsPath: path.resolve(__dirname, '../commands')
+	}
+};
+
+module.exports = config;
+```
+Priority isn't an issue, so we'll leave it at 1, we want the web server to start as soon as possible.
+
+
+- **Module file (modules/web/index.js)**
+```javascript
+const express = require('express');
+const Module = require('hotbot').Module;
+const bodyParser = require('body-parser');
+
+class Web extends Module {
+
+	constructor(config) {
+		super();
+		this.config = config;
+		this.app = express()
+			.use(bodyParser.json());
+	}
+
+	init(cb) {
+		this.app.get('/', (req,res)=>{
+			this.sendToSlack('Someone is on our server!', ['me','otheruser'], ['general','otherchannel']);
+			res.send('Hello, world!')
+		});
+		this.app.listen(this.config.port, () => {
+			console.log('web start');
+			cb();
+		});
+	}
+}
+
+module.exports = Web;
+
+```
+The sendToSlack method takes 2 arrays, the first one, for DM names (eg:user names), the second for channel names.
+Any time someone will ping our server on port 1987, we'll get notified on Slack.
+
+## Building on it, modules communication.
+
+In this follow-up example, let's add a module that will notify us when someone commits to one of our organization projects on Github.
+we have setup an organization-wide webhook to send us notifications to htxp://example.com:1987/commit-hook. 
+
+Now let's get the other side of the hook ready!
+
+- **Module configuration**
+
+Building on the previous example, we already have a web server. Our new module should load after it, so we can inject the route for our hook.
+```javascript
+modules: [
+	{
+		name: 'web',
+		priority: 1,
+		port: 1987
+	}, {
+		name: 'git',
+		priority: 60,
+		notifyChannel: 'bot_broadcast',
+		notifyDM: 'xshirase'
+	}
+],
+```
+We've also set up a default user and channel to notify. Now let's get to the real thing.
+
+- **Module file (modules/git/index.js)**
+```javascript
+const Module = require('hotbot').Module;
+
+class Git extends Module {
+
+	constructor(config) {
+		super(config);
+	}
+
+	init(cb) {
+		this.requestRoute('addRoute');
+		cb();
+	}
+
+	addRoute(app) {
+		app.post('/hook_push', (req, res) => {
+			this.processCommit(req.body);
+			res.status(200).json({});
+		});
+	}
+
+	processCommit(git) {
+		const o = {
+			pusher: git.pusher.name,
+			repo: git.repository.name,
+			branch: git.ref.replace(/.*heads\//, ''),
+			num: git.after,
+			mod: git.head_commit.modified,
+			add: git.head_commit.added,
+			del: git.head_commit.deleted,
+			url: git.head_commit.url,
+			commits: git.commits
+		};
+
+		this.log(`Git commit on ${o.repo}/${o.branch}`);
+		const chan = this.config.notifyChannel;
+		const dm = this.config.notifyDM;
+		const msg = this.buildMsg(o);
+		this.sendToSlack(msg, dm, chan);
+	}
+
+	buildMsg(o) {
+		return `*Git Report* : \n - Push by ${o.pusher} on *${o.repo} / _${o.branch}_* \n- Head Commit URL: ${o.url}\n- *Commits (${o.commits.length})* : \n${o.commits.map(el => `_${el.message}_`).join('\n')}`;
+	}
+
+}
+
+module.exports = Git;
+```
+The result, on a random commit :
+![resultexample2](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+
 
 ## Commands
 Commands are what you type into the Slack app, and how the bot reacts to it. Commands take priority over regular messages.
