@@ -1,0 +1,26 @@
+{
+  "name": "hotbot",
+  "version": "1.0.0",
+  "description": "Fully modular Slack Bot framework with pluggable modules and commands.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xShirase/hotbot.git"
+  },
+  "keywords": [
+    "slack",
+    "bot"
+  ],
+  "author": "Guillaume RUCH (xshirase)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xShirase/hotbot/issues"
+  },
+  "homepage": "https://github.com/xShirase/hotbot#readme",
+  "dependencies": {
+    "@slack/client": "^3.7.0"
+  }
+}
