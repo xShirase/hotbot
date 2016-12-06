@@ -18,7 +18,7 @@ Anything. The HotBot I run in production at the moment does:
 
 Hotbot is made of 3 primary components, a config file, Modules and Commands.
 
-## Configuration (/config/config.json)
+## Configuration (/config/config.json) and app initialization
 
 The mimimal configuration is as follows :
 ```javascript
@@ -38,6 +38,20 @@ const config = {
 
 module.exports = config;
 ```
+
+And the most basic app possible (does absolutely nothing, but will light up your bot's dot in the slack panel) :
+```javascript
+const config = require('./config/config.js');
+const HotBot = require('hotbot');
+
+const app = new HotBot(config);
+
+app.plugModules();
+app.on('init', () => console.log('All modules init'))
+	.on('log', m => console.log(m))
+	.on('err', m => console.log(m));
+```
+
 
 ## Modules
 
