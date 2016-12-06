@@ -48,8 +48,7 @@ const app = new HotBot(config);
 
 app.plugModules();
 app.on('init', () => console.log('All modules init'))
-	.on('log', m => console.log(m))
-	.on('err', m => console.log(m));
+	.on('log', m => console.log(m));
 ```
 
 
