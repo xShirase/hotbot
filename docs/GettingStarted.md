@@ -1,4 +1,4 @@
-# Example 1 : *fw*, command that forwards messages to a channel (make the bot talk!)
+# Example 1 : *fw*, make the bot talk!
 
 ## Folder Structure
 ```
@@ -53,7 +53,7 @@ Notice how the argument number and types are defined, by default, a command stri
 
 Type it in any channel your bot lives in, and it'll write "HotBot rocks!" in the general channel.
 
-# Example 2 : *rps*, challenge anyone to a rock/paper/scissors game!
+# Example 2 : *rps*, rock/paper/scissors challenge!
 
 ## Folder Structure
 ```
@@ -154,4 +154,4 @@ module.exports = RPS;
 ## Command usage
 `rps colleague rock`
 
-This will send a challenge to @colleague. he will obviously not see your move until he's played.
+This will send a challenge to @colleague. he will obviously not see your move until he's played. you can type other commands in between your challenge and the reply.
