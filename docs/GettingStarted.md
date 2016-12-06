@@ -47,8 +47,10 @@ The above example simply forwards a message to a channel or DM of your choice.
 
 Notice how the argument number and types are defined, by default, a command string will be parsed first by delimiting quotes, THEN by spaces, and msg.text will reach your command as an Array of arguments.
 
-Example use of *fw*
+## Command Usage
+
 `fw general "HotBot Rocks!"`
+
 Type it in any channel your bot lives in, and it'll write "HotBot rocks!" in the general channel.
 
 # Example 2 : *rps*, challenge anyone to a rock/paper/scissors game!
@@ -149,3 +151,7 @@ class RPS extends Command {
 
 module.exports = RPS;
 ```
+## Command usage
+`rps colleague rock`
+
+This will send a challenge to @colleague. he will obviously not see your move until he's played.
