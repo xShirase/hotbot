@@ -18,7 +18,7 @@ Anything. The HotBot I run in production at the moment does:
 
 Hotbot is made of 3 primary components, a config file, Modules and Commands.
 
-### Configuration (/config/config.json)
+## Configuration (/config/config.json)
 
 The mimimal configuration is as follows :
 ```javascript
@@ -39,7 +39,7 @@ const config = {
 module.exports = config;
 ```
 
-### Modules
+## Modules
 
 Modules are essentially daemons. Example of modules would be :
 - A web server
@@ -51,58 +51,22 @@ Modules live in a directory that you can specify, and will be auto-loaded/init o
 They can also pass messages to each other, and to the Slack Bot (which is also a Module), and request components from each other.
 For example, your Github module needs to add a route to your Express server module at runtime? Not a problem! 
 
-#### Modules Documentation and examples
+### Modules Documentation and examples
 
-### Commands
+Examples : Getting Started with Modules
+API Doc : Module API
+
+## Commands
 Commands are what you type into the Slack app, and how the bot reacts to it. Commands take priority over regular messages.
 
 The Command class includes a slack.dataStore, for easy access to all the helpers it provides. It also abstracts a lot of the things you want to do multiple times, like send a message, wait for a specific user input, etc. 
 
 To add a new command, create a new folder in the commands directory (configurable), and add an index.js containing the command config and class.
 
-#### Commands documentation and examples :
+### Commands documentation and examples :
 
-Example command file : *fw/index.js*
-```javascript 
-const config = {
-	name: 'fw',
-	args: [{type: 'string'}, {type: 'string'}],
-	help: 'fw <channel> "<message>"',
-	logLevel: 0
-};
-
-const Command = require('hotbot').Command;
-class Fw extends Command {
-
-	constructor(dataStore) {
-		super(dataStore, config);
-	}
-
-	execute(msg) {
-		const args = msg.text;
-
-		if (this.store.getChannelByName(args[0])) {
-			this.send(args[1], this.store.getChannelByName(args[0]).id);
-		}else if (this.store.getDMByName(args[0])) {
-			this.send(args[1], this.store.getDMByName(args[0]).id);
-		}else {
-			this.send(`Can't find recipient *${args[0]}*`, msg.channel);
-		}
-	}
-}
-
-module.exports = Fw;
-```
-The above example simply forwards a message to a channel or DM of your choice. 
-
-Notice how the argument number and types are defined, by default, a command string will be parsed first by delimiting quotes, THEN by spaces, and msg.text will reach your command as an Array of arguments.
-
-Example use of *fw*
-`fw general "HotBot Rocks!"`
-Type it in any channel your bot lives in, and it'll write "HotBot rocks!" in the general channel.
-
-#### Command API methods :
-
+Examples : Getting Started with Commands
+See : Command API 
 
 ## Where is the documentation ?
 
