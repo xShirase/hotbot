@@ -1,5 +1,18 @@
 # HotBot is a Slack Bot, and so much more.
 
+##Table of Contents
+* [Who is it for?](https://github.com/xShirase/hotbot/blob/master/README.md#who-is-it-for)
+* [What can it do?](https://github.com/xShirase/hotbot/blob/master/README.md#what-can-it-do)
+* [How does it work?](https://github.com/xShirase/hotbot/blob/master/README.md#how-does-it-work)
+* [Configuration and minimal app](https://github.com/xShirase/hotbot/blob/master/README.md#configuration-and-minimal-app)
+* [Modules](https://github.com/xShirase/hotbot/blob/master/README.md#modules)
+    * [Doc and examples](https://github.com/xShirase/hotbot/blob/master/README.md#modules-documentation-and-examples)
+* [Commands](https://github.com/xShirase/hotbot/blob/master/README.md#commands)
+    * [Doc and examples](https://github.com/xShirase/hotbot/blob/master/README.md#commands-documentation-and-examples-)
+* [To-Do List](https://github.com/xShirase/hotbot/blob/master/README.md#to-do-list)
+* [Donate](https://github.com/xShirase/hotbot/blob/master/README.md#enough-said-take-my-money)
+* [Contribute](https://github.com/xShirase/hotbot/blob/master/README.md#can-i-contribute)
+
 ## Who is it for?
 
 HotBot is the perfect starting point if you have many different tasks you'd like to control through Slack and don't want to try and configure a million different apps and integrations.
@@ -18,9 +31,9 @@ Anything. The HotBot I run in production at the moment does:
 
 Hotbot is made of 3 primary components, a config file, Modules and Commands.
 
-## Configuration (/config/config.json) and app initialization
+## Configuration and minimal app 
 
-The mimimal configuration is as follows :
+The mimimal configuration (/config/config.json) is as follows :
 ```javascript
 const config = {
 	modulesPath: 'path/to/modules/directory',
@@ -84,7 +97,9 @@ To add a new command, create a new folder in the commands directory (configurabl
 ## Enough said, take my money!!
 Well, thank you, kind stranger!
 
-##To-Do List
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X25NV92LUG8WG)
+
+## To-Do List
 - [ ] Enable optional restricting of commands to DM
 - [ ] argument validation based on options
 - [ ] Yeoman generator for project skeleton
@@ -95,4 +110,4 @@ Well, thank you, kind stranger!
 ## Can I contribute?
 YES! You're more than welcome to, through the issues, or by forking and creating pull requests.
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X25NV92LUG8WG)
+
