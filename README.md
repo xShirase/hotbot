@@ -126,9 +126,12 @@ Well, thank you, kind stranger!
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X25NV92LUG8WG)
 
 ## To-Do List
+*v1.1*
 - [ ] Enable optional restricting of commands to DM
 - [ ] argument validation based on options
 - [ ] Yeoman generator for project skeleton
+- [ ] handle more than just the "message" event
+- [ ] expose the watch() method to interact with non-command messages
 - [ ] more error handling
 
 ## Changelog
