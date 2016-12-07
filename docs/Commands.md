@@ -89,10 +89,10 @@ In some cases, one command does not suffice and we want a series of interactions
 To achieve that, we need to tell our Command to "expect" the next message in the channel to be a "reply" to whatever it is waiting for.
 See (Rock, paper, scissors)[] for more details and a full example.
 
-### ```Command.expect(channelID, obj)```
+### ```Command.expect(channelID, obj [,replyMethodName])```
 
 Tells the bot to expect a message in the channel specified
-This message will be sent directly to the `reply()` method of the command. the message WILL NOT be parsed.
+This message will be sent directly to the `reply()` method of the command. If you have set a `replyMethodName`, it'll go to this instead. The message WILL NOT be parsed.
 In addition, you can store an object into this.expects, containing parameters necessary to the next steps.
 
 
