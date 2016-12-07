@@ -9,12 +9,13 @@
     * [Configuration and minimal app](https://github.com/xShirase/hotbot/blob/master/README.md#configuration-and-minimal-app)
 * [Modules](https://github.com/xShirase/hotbot/blob/master/README.md#modules)
     * Documentation 
-    * Getting Started, adding a web Server
-    * Building on the previous example
+    * [Getting Started, adding a web Server](https://github.com/xShirase/hotbot#getting-started-adding-a-basic-web-server)
+    * [Building on the previous example](https://github.com/xShirase/hotbot#building-on-it-modules-communication)
 * [Commands](https://github.com/xShirase/hotbot/blob/master/README.md#commands)
     * [API doc](https://github.com/xShirase/hotbot#commands-documentation-)
     * [1st example : fw, make the bot talk!](https://github.com/xShirase/hotbot#command-fw-make-the-bot-talk)
     * [2nd example : Rock, Paper, Scissors!](https://github.com/xShirase/hotbot#command-rps-rockpaperscissors-challenge)
+    * [More advanced stuff, querying components from Modules](https://github.com/xShirase/hotbot#more-advanced-stuff-querying-components-from-modules)
 * [To-Do List](https://github.com/xShirase/hotbot/blob/master/README.md#to-do-list)
 * [Donate](https://github.com/xShirase/hotbot/blob/master/README.md#enough-said-take-my-money)
 * [Contribute](https://github.com/xShirase/hotbot/blob/master/README.md#can-i-contribute)
@@ -427,6 +428,8 @@ module.exports = RPS;
 
 This will send a challenge to @colleague. he will obviously not see your move until he's played. you can type other commands in between your challenge and the reply.
 
+### More advanced stuff, querying components from Modules
+See : [DB example](https://github.com/xShirase/hotbot/blob/master/docs/DB-Example.md)
 
 ## Enough said, take my money!!
 Well, thank you, kind stranger!
