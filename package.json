@@ -22,5 +22,8 @@
   "homepage": "https://github.com/xShirase/hotbot#readme",
   "dependencies": {
     "@slack/client": "^3.7.0"
+  },
+  "devDependencies": {
+
   }
 }
