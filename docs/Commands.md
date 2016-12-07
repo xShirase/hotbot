@@ -58,7 +58,18 @@ Once the module replies, the method specified will be called with the component 
 }
 ```
 This is the structure of the message as it arrives into the `.execute()` method. The channel field is a channel or DM id.
-
+The default execute() command is a dispatcher that does the following :
+```javascript
+execute(msg) {
+	const args = msg.text;
+	if (args.length > 1) {
+		this[args.shift()](args, msg.channel);
+	}else {
+		this[args[0]](msg.channel);
+	}
+}
+``` 
+So, if it receives ['foo','bar'], it'll call the method this.foo(bar,channel). In most cases, you don't need to overwrite it, except if you have only one type of arguments (or no arguments at all), in which case the whole execution can happen in the execute() method.
 
 ## Sending messages
 
