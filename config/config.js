@@ -1,3 +1,9 @@
+/* !
+ * hotbot
+ * Copyright (c) 2016 Guillaume RUCH <shirase.dev@gmail.com>
+ * MIT Licensed
+ */
+
 const config = {
 	modulesPath: '',
 	modules: [],
