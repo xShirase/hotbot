@@ -1,4 +1,4 @@
-# Command API 
+# Command API
 
 ## Default Configuration
 ```
@@ -17,13 +17,13 @@ from v1.1.0 :
 - validOptions : Array(String)
 - optional : true/false
 
-The validator will expect your command to have the exact number of required arguments, of the right type. 
+The validator will expect your command to have the exact number of required arguments, of the right type.
 
 Once the Bot recognizes a command, the following happens:
 - message.text is parsed into an array of arguments, double-quoted blocks count as one.
 - the array is validated against the Command config
 - the array is then reinjected into the original message.text property
-- the command `execute(message)` method is called. 
+- the command `execute(message)` method is called.
 
 ##Methods
 
@@ -39,6 +39,13 @@ The store property is a Slack Datastore, with all its helper methods, [see here 
 
 
 ###  ```Command.init()```
+
+Will be called on command load, when the program starts. Defaults to doing nothing silently.
+
+### ```Command.requestModuleComponent(to,component,method)```
+
+Requests a component fom one of the installed modules. [See here for example use.]()
+Once the module replies, the method specified will be called with the component as an argument *Command.method(component)*
 
 
 ###  ```Command.execute(message)```
@@ -80,12 +87,12 @@ In addition, you can store an object into this.expects, containing parameters ne
 
 ### ```Command.reply(message)```
 
-The expected message will arrive here, to be processed as needed. think of it as a secondary `execute()` method. 
+The expected message will arrive here, to be processed as needed. think of it as a secondary `execute()` method.
 
 
 ### ```Command.rmExpect(channelID)```
 
-If the `reply()` method has parsed and validated the response message, release the expect on this particular channel. 
+If the `reply()` method has parsed and validated the response message, release the expect on this particular channel.
 
 
 ### ```Command.isExpected(channelID)```
