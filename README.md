@@ -426,7 +426,8 @@ module.exports = RPS;
 - **Command usage**
 `rps colleague rock`
 
-This will send a challenge to @colleague. he will obviously not see your move until he's played. you can type other commands in between your challenge and the reply.
+This will send a challenge to @colleague. he will obviously not see your move until he's played. you can type other commands in between your challenge and the reply. You can also configure on which method to reply, to allow for more intricate commands and interactions.
+
 
 ### More advanced stuff, querying components from Modules
 See : [DB example](https://github.com/xShirase/hotbot/blob/master/docs/DB-Example.md)
