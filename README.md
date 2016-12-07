@@ -15,6 +15,7 @@
     * [API doc](https://github.com/xShirase/hotbot#commands-documentation-)
     * [1st example : fw, make the bot talk!](https://github.com/xShirase/hotbot#command-fw-make-the-bot-talk)
     * [2nd example : Rock, Paper, Scissors!](https://github.com/xShirase/hotbot#command-rps-rockpaperscissors-challenge)
+    * More advanced stuff, querying components from Modules
 * [To-Do List](https://github.com/xShirase/hotbot/blob/master/README.md#to-do-list)
 * [Donate](https://github.com/xShirase/hotbot/blob/master/README.md#enough-said-take-my-money)
 * [Contribute](https://github.com/xShirase/hotbot/blob/master/README.md#can-i-contribute)
@@ -427,6 +428,8 @@ module.exports = RPS;
 
 This will send a challenge to @colleague. he will obviously not see your move until he's played. you can type other commands in between your challenge and the reply.
 
+### More advanced stuff, querying components from Modules
+See : [DB example](https://github.com/xShirase/hotbot/blob/master/docs/DB-Example.md)
 
 ## Enough said, take my money!!
 Well, thank you, kind stranger!
