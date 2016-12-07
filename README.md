@@ -1,4 +1,5 @@
 # HotBot is a Slack Bot, and so much more.
+[![npm package](https://nodei.co/npm/hotbot.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hotbot/)
 
 ##Table of Contents
 * [Who is it for?](https://github.com/xShirase/hotbot/blob/master/README.md#who-is-it-for)
