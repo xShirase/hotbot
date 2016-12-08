@@ -5,6 +5,7 @@
 {
 	name: 'Command Name',
 	args: {},
+	noValidate:false,
 	help: 'describe args usage here',
 	logLevel: 0
 }
@@ -18,10 +19,11 @@ from v1.1.0 :
 - optional : true/false
 
 The validator will expect your command to have the exact number of required arguments, of the right type.
+To skip the default(basic) validation, set `noValidate:true`. The args option is then unnecessary.
 
 Once the Bot recognizes a command, the following happens:
 - message.text is parsed into an array of arguments, double-quoted blocks count as one.
-- the array is validated against the Command config
+- if the noValidate option isn't set, the array is validated against the Command config
 - the array is then reinjected into the original message.text property
 - the command `execute(message)` method is called.
 
