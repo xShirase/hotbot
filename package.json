@@ -1,6 +1,6 @@
 {
   "name": "hotbot",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Fully modular Slack Bot framework with pluggable modules and commands.",
   "main": "index.js",
   "scripts": {
